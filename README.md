@@ -112,7 +112,7 @@ The first launch may also take up to an hour due to PyTorch installation.
 ## Manual Build
 
 ```bash
-git clone https://github.com/umzi2/easy_reline.git
+git clone https://github.com/rewaifu/easy_reline.git
 cd easy_reline
 
 # Windows
