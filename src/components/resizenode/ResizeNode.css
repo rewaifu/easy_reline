@@ -1,0 +1,50 @@
+.combobox__input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #c8d0e0;
+    font-size: 13px;
+    caret-color: #63b3ed;
+    min-width: 0;
+}
+
+.combobox__input::placeholder {
+    color: #3d4f68;
+}
+
+.combobox__trigger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-left: 1px solid #252d3d;
+    padding: 0 10px;
+    color: #4a5568;
+    cursor: pointer;
+    height: 100%;
+    transition: color 0.15s;
+}
+
+.combobox__trigger-btn:hover {
+    color: #94a3b8;
+}
+
+.number-field__spinners {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.number-field__spinners .number-field__increment,
+.number-field__spinners .number-field__decrement {
+    height: 50%;
+    flex: 1;
+    font-size: 8px;
+    line-height: 1;
+}
+
+.number-field__spinners .number-field__increment {
+    border-bottom: 1px solid #252d3d;
+}

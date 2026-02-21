@@ -1,0 +1,19 @@
+/* ── NumberField spinners stacked vertically ──────────────────────────────── */
+
+.number-field__spinners {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.number-field__spinners .number-field__increment,
+.number-field__spinners .number-field__decrement {
+    height: 50%;
+    flex: 1;
+    font-size: 8px;
+    line-height: 1;
+}
+
+.number-field__spinners .number-field__increment {
+    border-bottom: 1px solid #252d3d;
+}

@@ -1,0 +1,151 @@
+@keyframes dash-march {
+    to {
+        stroke-dashoffset: -24;
+    }
+}
+
+
+.path-input {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+.path-input__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #4a5568;
+}
+
+
+.path-input__zone {
+    position: relative;
+    border-radius: 8px;
+    background: #0d1117;
+    transition: background 0.2s;
+    cursor: default;
+}
+
+.path-input__zone--over {
+    background: #111827;
+}
+
+
+.path-input__border {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 8px;
+    overflow: visible;
+}
+
+.path-input__border rect {
+    fill: none;
+    stroke: #2d3748;
+    stroke-width: 1.5;
+    stroke-dasharray: 6 6;
+    rx: 7;
+    ry: 7;
+    transition: stroke 0.2s;
+}
+
+.path-input__zone--over .path-input__border rect {
+    stroke: #63b3ed;
+    animation: dash-march 0.4s linear infinite;
+}
+
+
+.path-input__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+}
+
+
+.path-input__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    color: #4a5568;
+    transition: color 0.2s;
+}
+
+.path-input__zone--over .path-input__icon {
+    color: #63b3ed;
+}
+
+
+.path-input__field {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e2e8f0;
+    font-family: inherit;
+    font-size: 13px;
+    padding: 11px 0;
+    caret-color: #63b3ed;
+    min-width: 0;
+}
+
+.path-input__field::placeholder {
+    color: #2d3748;
+}
+
+
+.path-input__browse {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    margin: 4px;
+    background: #1a202c;
+    border: 1px solid #2d3748;
+    border-radius: 5px;
+    color: #718096;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+        border-color 0.2s,
+        color 0.2s,
+        background 0.2s;
+    white-space: nowrap;
+}
+
+.path-input__browse:hover {
+    border-color: #4a5568;
+    color: #a0aec0;
+    background: #2d3748;
+}
+
+.path-input__browse:active {
+    background: #1a202c;
+}
+
+
+.path-input__hint {
+    font-size: 11px;
+    color: #2d3748;
+    padding-left: 2px;
+    transition: color 0.2s;
+}
+
+.path-input__zone--over .path-input__hint {
+    color: #4a5568;
+}
