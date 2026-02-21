@@ -25,7 +25,7 @@ export function configToPipeline(config: Config): PipelineNode[] {
     exact_tiler_size: config.model_tile_size,
   };
 
-  if (config.model_scale !== undefined) {
+  if (config.model_scale !== undefined && config.model_scale !== null) {
     upscaleOptions.target_scale = config.model_scale;
   }
 
@@ -34,7 +34,7 @@ export function configToPipeline(config: Config): PipelineNode[] {
     options: upscaleOptions,
   });
 
-  if (config.target_size !== undefined) {
+  if (config.target_size !== undefined && config.model_scale !== null) {
     pipeline.push({
       type: "resize",
       options: {
@@ -65,8 +65,4 @@ export function configToPipeline(config: Config): PipelineNode[] {
   });
 
   return pipeline;
-}
-
-export function configToJson(config: Config): string {
-  return JSON.stringify(configToPipeline(config), null, 2);
 }

@@ -15,7 +15,7 @@ interface ResizeNodeProps {
 }
 
 export default function ResizeNode(props: ResizeNodeProps) {
-  const targetSizeEnabled = () => props.config().target_size !== undefined;
+  const targetSizeEnabled = () => props.config().target_size !== undefined && props.config().target_size !== null;
 
   return (
     <NodeCard
