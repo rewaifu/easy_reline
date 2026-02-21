@@ -453,16 +453,7 @@ async fn initialize(
             "Creating virtual environment...",
             None,
         );
-        let mut venv_args = vec!["venv", ".venv"];
-        #[cfg(not(target_os = "windows"))]
-        let python_override;
-        #[cfg(not(target_os = "windows"))]
-        if std::env::var("APPIMAGE").is_ok() {
-            python_override = find_system_python();
-            if let Some(ref p) = python_override {
-                venv_args.extend(["--python", p.to_str().unwrap()]);
-            }
-        }
+        let mut venv_args = vec!["venv", ".venv", "--python", "3.12"];
 
         let out = app
             .shell()
