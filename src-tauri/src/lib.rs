@@ -453,7 +453,7 @@ async fn initialize(
             "Creating virtual environment...",
             None,
         );
-        let mut venv_args = vec!["venv", ".venv", "--python", "3.12"];
+        let mut venv_args = vec!["venv", ".venv"];
 
         let out = app
             .shell()
