@@ -1,6 +1,6 @@
 [package]
 name = "easy_reline"
-version = "0.1.0"
+version = "0.1.1"
 description = "Easy upscale gui"
 authors = ["umzi"]
 edition = "2021"
