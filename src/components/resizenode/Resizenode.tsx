@@ -15,7 +15,9 @@ interface ResizeNodeProps {
 }
 
 export default function ResizeNode(props: ResizeNodeProps) {
-  const targetSizeEnabled = () => props.config().target_size !== undefined && props.config().target_size !== null;
+  const targetSizeEnabled = () =>
+    props.config().target_size !== undefined &&
+    props.config().target_size !== null;
 
   return (
     <NodeCard
@@ -117,16 +119,12 @@ export default function ResizeNode(props: ResizeNodeProps) {
           </Select>
         </div>
 
-
         <NumberField
           class="number-field"
           minValue={1}
-          value={props.config().target_size ?? 1000}
-          onChange={(value) =>
-            props.setConfig((prev) => ({
-              ...prev,
-              target_size: Number(String(value).replace(/\s+/g, "")),
-            }))
+          rawValue={props.config().target_size ?? 1000}
+          onRawValueChange={(value) =>
+            props.setConfig((prev) => ({ ...prev, target_size: value }))
           }
         >
           <NumberField.Label class="number-field__label">
