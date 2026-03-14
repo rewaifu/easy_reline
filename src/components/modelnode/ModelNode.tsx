@@ -32,17 +32,14 @@ export default function ModelNode(props: ModelNodeProps) {
         />
       </div>
 
-      {/* Tile size — controlled via value so it updates when config loads */}
+      {/* Tile size */}
       <NumberField
         class="number-field"
         minValue={128}
         step={128}
-        value={props.config().model_tile_size}
-        onChange={(value) =>
-          props.setConfig((prev) => ({
-            ...prev,
-            model_tile_size: Number(String(value).replace(/\s+/g, "")),
-          }))
+        rawValue={props.config().model_tile_size}
+        onRawValueChange={(value) =>
+          props.setConfig((prev) => ({ ...prev, model_tile_size: value }))
         }
       >
         <NumberField.Label class="number-field__label">
@@ -67,7 +64,7 @@ export default function ModelNode(props: ModelNodeProps) {
         </div>
       </NumberField>
 
-      {/* DType — controlled via value */}
+      {/* DType */}
       <div>
         <label class="field-label">DType</label>
         <Select
@@ -110,7 +107,6 @@ export default function ModelNode(props: ModelNodeProps) {
           checked={showCustomScale()}
           onChange={(e) => {
             if (e.currentTarget.checked) {
-              // Set a default scale when enabling
               props.setConfig((prev) => ({ ...prev, model_scale: 2 }));
             } else {
               props.setConfig((prev) => ({ ...prev, model_scale: undefined }));
@@ -125,12 +121,9 @@ export default function ModelNode(props: ModelNodeProps) {
           class="number-field"
           minValue={1}
           maxValue={10}
-          value={props.config().model_scale ?? 2}
-          onChange={(value) =>
-            props.setConfig((prev) => ({
-              ...prev,
-              model_scale: Number(String(value).replace(/\s+/g, "")),
-            }))
+          rawValue={props.config().model_scale ?? 2}
+          onRawValueChange={(value) =>
+            props.setConfig((prev) => ({ ...prev, model_scale: value }))
           }
         >
           <NumberField.Label class="number-field__label">
