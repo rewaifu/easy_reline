@@ -41,7 +41,7 @@ export default function Configurator(props: ConfiguratorProps) {
 
       <div class="nodes-panel__list">
         <FsNode config={config} setConfig={setConfig} />
-        <ModelNode config={config} setConfig={setConfig} />
+        {/* <ModelNode config={config} setConfig={setConfig} /> */}
         <ResizeNode config={config} setConfig={setConfig} />
       </div>
 
