@@ -34,7 +34,7 @@ export function configToPipeline(config: Config): PipelineNode[] {
   //   options: upscaleOptions,
   // });
 
-  if config.target_size !== undefined {
+  if (config.target_size !== undefined) {
     pipeline.push({
       type: "resize",
       options: {
