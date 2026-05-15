@@ -17,24 +17,24 @@ export function configToPipeline(config: Config): PipelineNode[] {
     },
   });
 
-  const upscaleOptions: Record<string, unknown> = {
-    model: config.model_path,
-    dtype: config.model_dtype,
-    tiler: "exact",
-    allow_cpu_upscale: config.model_allow_cpu_scale,
-    exact_tiler_size: config.model_tile_size,
-  };
+  // const upscaleOptions: Record<string, unknown> = {
+  //   model: config.model_path,
+  //   dtype: config.model_dtype,
+  //   tiler: "exact",
+  //   allow_cpu_upscale: config.model_allow_cpu_scale,
+  //   exact_tiler_size: config.model_tile_size,
+  // };
 
-  if (config.model_scale !== undefined && config.model_scale !== null) {
-    upscaleOptions.target_scale = config.model_scale;
-  }
+  // if (config.model_scale !== undefined && config.model_scale !== null) {
+  //   upscaleOptions.target_scale = config.model_scale;
+  // }
 
-  pipeline.push({
-    type: "upscale",
-    options: upscaleOptions,
-  });
+  // pipeline.push({
+  //   type: "upscale",
+  //   options: upscaleOptions,
+  // });
 
-  if (config.target_size !== undefined && config.model_scale !== null) {
+  if config.target_size !== undefined {
     pipeline.push({
       type: "resize",
       options: {
